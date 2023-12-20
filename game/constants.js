@@ -1,3 +1,7 @@
+/*
+This is constants such as colors and canvas, which rarely will be changed.
+*/
+
 //colors
 const background = "#050820"
 const text = "#dde0fa"
