@@ -9,6 +9,11 @@ const primary = "#8890EC"
 const secondary = "#591898"
 const accent = "#be4ae2"
 
+//Game constants
+const canvasWidth = 1200
+const canvasHeight = 600
+const tileSize = 40
+//HTML elements
 const body = document.querySelector("body")
 
 const canvas = document.getElementById("canvas")
