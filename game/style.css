@@ -11,8 +11,10 @@ body {
 canvas {
     height: 500px;
     width: 1000px;
+    /*Copied code to fix blurry canvas drawings*/
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+    /*https://stackoverflow.com/questions/42588501/how-do-i-fix-blurry-shape-edges-in-html5-canvas*/
 }
