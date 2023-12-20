@@ -1,0 +1,1 @@
+const gameBoard = new GameBoard(1200, 600, 40, background)
