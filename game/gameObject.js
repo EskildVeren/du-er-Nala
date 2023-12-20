@@ -3,4 +3,12 @@ class GameObject{
         this.x = x
         this.y = y
     }
+    move(vx, vy) {
+        this.x += vx
+        this.y += vy
+    }
+    draw() {
+        ctx.fillStyle = primary
+        ctx.fillRect(this.x, this.y, tileSize)
+    }
 }
