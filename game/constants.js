@@ -20,3 +20,12 @@ const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
 //What direction player is walking
 let direction = null
+let pause = false
+
+//Dictionaries for removing repetitive code
+const movementMappings = [
+    {keyCode: 37, direction: "left", vx: -1, vy: 0},
+    {keyCode: 38, direction: "up", vx: 0, vy: -1},
+    {keyCode: 39, direction: "right", vx: 1, vy: 0},
+    {keyCode: 40, direction: "down", vx: 0, vy: 1},
+]

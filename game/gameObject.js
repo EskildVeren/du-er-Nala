@@ -4,11 +4,11 @@ class GameObject{
         this.y = y
     }
     move(vx, vy) {
-        this.x += vx
-        this.y += vy
+        this.x += vx * tileSize
+        this.y += vy * tileSize
     }
     draw() {
         ctx.fillStyle = primary
-        ctx.fillRect(this.x, this.y, tileSize)
+        ctx.fillRect(this.x, this.y, tileSize, tileSize)
     }
 }
