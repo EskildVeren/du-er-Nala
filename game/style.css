@@ -9,8 +9,7 @@ body {
     min-height: 100vh;
 }
 canvas {
-    height: 500px;
-    width: 1000px;
+    background-color: red;
     /*Copied code to fix blurry canvas drawings*/
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
