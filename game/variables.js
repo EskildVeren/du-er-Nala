@@ -4,4 +4,4 @@ Objects and variables are defined here
 */
 
 const gameBoard = new GameBoard(background)
-const gameObject = new GameObject(tileSize*4, tileSize*5)
+const gameObject = new GameObject(tileSize*4, tileSize*5, primary)
