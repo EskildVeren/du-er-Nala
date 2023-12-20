@@ -21,4 +21,25 @@ Selve koden er skrevet på engelsk slik at koden holdes til ett språk. Likevel 
 
 ## Tekniske detaljer
 
-### Ikke noe å dele enda ;)
+### Script elementer i index.html
+
+Her er rekkefølgen på script elementer
+
+1. Konstanter
+2. Klasser
+3. Variabler
+4. Funksjonell kode
+
+## Verktøy og rammeverk
+
+### JavaScript
+
+"Hjernen" til spillet er skrevet i JavaScript.
+
+### HTML
+
+Alt kjøres på et HTML-dokument
+
+### CSS
+
+Enkel styling av canvas og body i style.css
