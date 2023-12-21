@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
 }
+
 canvas {
     background-color: red;
     /*Copied code to fix blurry canvas drawings*/
@@ -17,4 +18,15 @@ canvas {
     image-rendering: pixelated;
     image-rendering: crisp-edges;
     /*https://stackoverflow.com/questions/42588501/how-do-i-fix-blurry-shape-edges-in-html5-canvas*/
+}
+
+button {
+    height: 2em;
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0.25em;
+    gap: 0.5em;
 }

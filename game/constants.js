@@ -18,6 +18,10 @@ const body = document.querySelector("body")
 
 const canvas = document.getElementById("canvas")
 const ctx = canvas.getContext("2d")
+const summonObjectButton = document.getElementById("summonObject")
+const giveStopButton = document.getElementById("giveStop")
+const givePushButton = document.getElementById("givePush")
+
 //What direction player is walking
 let direction = null
 let pause = false
