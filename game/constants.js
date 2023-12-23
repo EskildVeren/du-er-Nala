@@ -22,10 +22,6 @@ const summonObjectButton = document.getElementById("summonObject")
 const giveStopButton = document.getElementById("giveStop")
 const givePushButton = document.getElementById("givePush")
 
-//What direction player is walking
-let direction = null
-let pause = false
-
 //Dictionaries for removing repetitive code
 const movementMappings = [
     {keyCode: 37, direction: "left", vx: -1, vy: 0},
