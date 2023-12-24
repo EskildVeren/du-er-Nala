@@ -45,35 +45,48 @@ function createVacuum(vacuumList, x, y) {
     vacuumList.add(new Vacuum(x, y, secondary))
 }
 
+const vacuumGoingLeft = {
+    startX: xTiles,
+    startY: Math.floor(Math.random() * yTiles),
+    vx: -1,
+    vy: 0,
+    sprite: arrowLeftImg
+}
+const vacuumGoingUp = {
+    startX: Math.floor(Math.random() * xTiles),
+    startY: yTiles,
+    vx: 0,
+    vy: -1,
+    sprite: arrowUpImg
+}
+const vacuumGoingRight = {
+    startX: -1,
+    startY: Math.floor(Math.random() * yTiles),
+    vx: 1,
+    vy: 0,
+    sprite: arrowRightImg
+}
+const vacuumGoingDown = {
+    startX: Math.floor(Math.random() * xTiles),
+    startY: -1,
+    vx: 0,
+    vy: 1,
+    sprite: arrowDownImg
+}
+const vacuumDirections = [vacuumGoingLeft, vacuumGoingUp, vacuumGoingRight, vacuumGoingDown]
+
 function addVacuum() {
-    let newVacuum = null;
-    //gameBoard.entities.add(newVacuum)
-    const startingPosition = Math.floor(Math.random()*4)
-    console.log("startingposition ", newVacuum);
-    if (startingPosition==0) {
-        const x = -1
-        const y = Math.floor(Math.random() * yTiles)
-        newVacuum = new Vacuum(x, y, arrowRightImg, 1, 0)
-        rightVacuums.vacuums.push(newVacuum)
-    }
-    if (startingPosition==1) {
-        const x = xTiles
-        const y = Math.floor(Math.random() * yTiles)
-        newVacuum = new Vacuum(x, y, arrowLeftImg, -1, 0)
-        leftVacuums.vacuums.push(newVacuum)
-    }
-    if (startingPosition==2) {
-        const x = Math.floor(Math.random() * xTiles)
-        const y = -1
-        newVacuum = new Vacuum(x, y, arrowDownImg, 0, 1)
-        downVacuums.vacuums.push(newVacuum)
-    }
-    if (startingPosition==3) {
-        const x = Math.floor(Math.random() * xTiles)
-        const y = yTiles
-        newVacuum = new Vacuum(x, y, arrowUpImg, 0, -1)
-        upVacuums.vacuums.push(newVacuum)
-    }
+    const randomDirectionIndex = Math.floor(Math.random()*4)
+    const chosenVacuumDirection = vacuumDirections[randomDirectionIndex]
+    
+    const startX = chosenVacuumDirection.startX
+    const startY = chosenVacuumDirection.startY
+    const vx = chosenVacuumDirection.vx
+    const vy = chosenVacuumDirection.vy
+    const sprite = chosenVacuumDirection.sprite
+
+    newVacuum = new Vacuum(startX, startY, sprite, vx, vy)
+
     gameBoard.citrusEntities.push(newVacuum)
     console.log(gameBoard.entities);
 }
