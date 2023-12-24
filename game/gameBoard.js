@@ -1,9 +1,9 @@
 class GameBoard {
-    constructor(color) {
+    constructor(color, player) {
         this.color = color
-        this.entities = []
-        this.stopEntities = []
-        this.pushEntities = []
+        this.entities = [player]
+        this.citrusEntities = []
+        this.player = player
     }
     draw() {
         ctx.fillStyle = background
@@ -26,27 +26,15 @@ class GameBoard {
             ctx.stroke()
         }
     }
-    canMove(movingEntity, vx, vy) {
-        const newX = movingEntity.x + vx
-        const newY = movingEntity.y + vy
-        let canMove = true
-        this.stopEntities.forEach(otherEntity => {
-            if ((otherEntity.x == newX) && (otherEntity.y == newY) && (movingEntity !== otherEntity)) { 
-                canMove = false
+    playerHit() {
+        let playerHit = false
+        this.citrusEntities.forEach(citrus => {
+            if ((citrus.x == this.player.x) && (citrus.y == this.player.y)) { 
+                playerHit = true
             }
         });
 
-        this.pushEntities.forEach(otherEntity => {
-            if ((otherEntity.x == newX) && (otherEntity.y == newY) && (movingEntity !== otherEntity)) { 
-                if (this.canMove(otherEntity, vx, vy)) {
-                    otherEntity.move(vx, vy)
-                }
-                else {
-                    canMove = false
-                }
-            }
-        });
-        return canMove
+        return playerHit
     }
 
 }

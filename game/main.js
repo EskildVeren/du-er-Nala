@@ -1,19 +1,22 @@
 /*
 Functional code where the logic lies
 */
+let direction = null
+let pause = false
+let isMoving = false
+
 const player = new GameObject(4, 5, playerImg)
-    gameBoard.entities.push(player)
-    gameBoard.draw()
-    player.draw()
+const gameBoard = new GameBoard(background, player)
+
+gameBoard.draw()
+player.draw()
 
 function frameCycle() {
     //Check where to move
     if (direction != null) {
         movementMappings.forEach(moveType => {
             if (direction == moveType.direction) {
-                if (gameBoard.canMove(player, moveType.vx, moveType.vy)) {
-                    player.move(moveType.vx, moveType.vy)
-                }
+                player.move(moveType.vx, moveType.vy)
             }
         });
         addVacuum()
@@ -23,9 +26,16 @@ function frameCycle() {
     }
     //Draw objects
     gameBoard.draw()
-    gameBoard.entities.forEach( entity => {
+    gameBoard.citrusEntities.forEach( entity => {
         entity.draw()
     });
+    player.draw()
+
+    if (gameBoard.playerHit()) {
+        pause = true
+        ctx.fillRect(0,0,canvasWidth, canvasHeight)
+        
+    }
 
     //Run if not paused
     if (!pause) {

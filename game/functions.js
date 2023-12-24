@@ -23,11 +23,9 @@ function registerKeypress(e) {
 body.addEventListener("keydown", registerKeypress)
 
 function moveVacuums() {
-    allVacuums.forEach(vacuumList => {
-        vacuumList.vacuums.forEach(vacuum => {
-            vacuum.move(vacuumList.vx, vacuumList.vy)
-            vacuum.draw()
-        })
+    gameBoard.citrusEntities.forEach(vacuum => {
+        vacuum.move()
+        vacuum.draw()
     })
 }
 
@@ -55,27 +53,27 @@ function addVacuum() {
     if (startingPosition==0) {
         const x = -1
         const y = Math.floor(Math.random() * yTiles)
-        newVacuum = new Vacuum(x, y, arrowRightImg)
+        newVacuum = new Vacuum(x, y, arrowRightImg, 1, 0)
         rightVacuums.vacuums.push(newVacuum)
     }
     if (startingPosition==1) {
         const x = xTiles
         const y = Math.floor(Math.random() * yTiles)
-        newVacuum = new Vacuum(x, y, arrowLeftImg)
+        newVacuum = new Vacuum(x, y, arrowLeftImg, -1, 0)
         leftVacuums.vacuums.push(newVacuum)
     }
     if (startingPosition==2) {
         const x = Math.floor(Math.random() * xTiles)
         const y = -1
-        newVacuum = new Vacuum(x, y, arrowDownImg)
+        newVacuum = new Vacuum(x, y, arrowDownImg, 0, 1)
         downVacuums.vacuums.push(newVacuum)
     }
     if (startingPosition==3) {
         const x = Math.floor(Math.random() * xTiles)
         const y = yTiles
-        newVacuum = new Vacuum(x, y, arrowUpImg)
+        newVacuum = new Vacuum(x, y, arrowUpImg, 0, -1)
         upVacuums.vacuums.push(newVacuum)
     }
-    gameBoard.entities.push(newVacuum)
+    gameBoard.citrusEntities.push(newVacuum)
     console.log(gameBoard.entities);
 }
