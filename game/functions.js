@@ -29,64 +29,24 @@ function moveVacuums() {
     })
 }
 
-
-function catIsHit() {
-    allVacuums.forEach(vacuumList => {
-        vacuumList.vacuums.forEach(vacuum => {
-            if (vacuum.catIsHit) {
-                return true
-            }
-        })
-    })
-    return false
-}
-
-function createVacuum(vacuumList, x, y) {
-    vacuumList.add(new Vacuum(x, y, secondary))
-}
-
-const vacuumGoingLeft = {
-    startX: xTiles,
-    startY: Math.floor(Math.random() * yTiles),
-    vx: -1,
-    vy: 0,
-    sprite: arrowLeftImg
-}
-const vacuumGoingUp = {
-    startX: Math.floor(Math.random() * xTiles),
-    startY: yTiles,
-    vx: 0,
-    vy: -1,
-    sprite: arrowUpImg
-}
-const vacuumGoingRight = {
-    startX: -1,
-    startY: Math.floor(Math.random() * yTiles),
-    vx: 1,
-    vy: 0,
-    sprite: arrowRightImg
-}
-const vacuumGoingDown = {
-    startX: Math.floor(Math.random() * xTiles),
-    startY: -1,
-    vx: 0,
-    vy: 1,
-    sprite: arrowDownImg
-}
 const vacuumDirections = [vacuumGoingLeft, vacuumGoingUp, vacuumGoingRight, vacuumGoingDown]
 
 function addVacuum() {
     const randomDirectionIndex = Math.floor(Math.random()*4)
-    const chosenVacuumDirection = vacuumDirections[randomDirectionIndex]
+    const vacuumData = vacuumDirections[randomDirectionIndex]
     
-    const startX = chosenVacuumDirection.startX
-    const startY = chosenVacuumDirection.startY
-    const vx = chosenVacuumDirection.vx
-    const vy = chosenVacuumDirection.vy
-    const sprite = chosenVacuumDirection.sprite
+    let startX = vacuumData.startX
+    let startY = vacuumData.startY
 
-    newVacuum = new Vacuum(startX, startY, sprite, vx, vy)
+    if (startX == "random") {
+        startX = Math.floor(Math.random() * xTiles)
+    }
+    else if (startY == "random") {
+        startY = Math.floor(Math.random() * yTiles)
+    }
+
+    newVacuum = new Vacuum(startX, startY, vacuumData.sprite, vacuumData.vx, vacuumData.vy)
 
     gameBoard.citrusEntities.push(newVacuum)
-    console.log(gameBoard.entities);
+    console.log(gameBoard.citrusEntities);
 }

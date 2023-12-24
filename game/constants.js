@@ -37,3 +37,32 @@ const movementMappings = [
     {keyCode: 39, direction: "right", vx: 1, vy: 0},
     {keyCode: 40, direction: "down", vx: 0, vy: 1},
 ]
+//Used for spawning new vacuums
+const vacuumGoingLeft = {
+    startX: xTiles,
+    startY: "random",
+    vx: -1,
+    vy: 0,
+    sprite: arrowLeftImg
+}
+const vacuumGoingUp = {
+    startX: "random",
+    startY: yTiles,
+    vx: 0,
+    vy: -1,
+    sprite: arrowUpImg
+}
+const vacuumGoingRight = {
+    startX: -1,
+    startY: "random",
+    vx: 1,
+    vy: 0,
+    sprite: arrowRightImg
+}
+const vacuumGoingDown = {
+    startX: "random",
+    startY: -1,
+    vx: 0,
+    vy: 1,
+    sprite: arrowDownImg
+}
