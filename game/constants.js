@@ -10,17 +10,25 @@ const secondary = "#591898"
 const accent = "#be4ae2"
 
 //Game constants
-const canvasWidth = 1200
-const canvasHeight = 600
+const xTiles = 10
+const yTiles = 10
 const tileSize = 40
+const canvasWidth = xTiles * tileSize
+const canvasHeight = yTiles * tileSize
 //HTML elements
 const body = document.querySelector("body")
 
 const canvas = document.getElementById("canvas")
+canvas.height = canvasHeight
+canvas.width = canvasWidth
 const ctx = canvas.getContext("2d")
-const summonObjectButton = document.getElementById("summonObject")
-const giveStopButton = document.getElementById("giveStop")
-const givePushButton = document.getElementById("givePush")
+const arrowLeftImg = document.getElementById("arrowLeft")
+const arrowUpImg = document.getElementById("arrowUp")
+const arrowRightImg = document.getElementById("arrowRight")
+const arrowDownImg = document.getElementById("arrowDown")
+const playerImg = document.getElementById("player")
+console.log(arrowLeftImg);
+
 
 //Dictionaries for removing repetitive code
 const movementMappings = [

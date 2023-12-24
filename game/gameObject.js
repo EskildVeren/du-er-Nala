@@ -1,10 +1,10 @@
 class GameObject{
-    constructor(x, y, color) {
+    constructor(x, y, sprite) {
         this.x = x
         this.y = y
         this.pixelPosX = x * tileSize
         this.pixelPosY = y * tileSize
-        this.color = color
+        this.sprite = sprite
         //adjectives
         this.push = false
         this.stop = true
@@ -16,7 +16,6 @@ class GameObject{
         this.pixelPosY = this.y * tileSize
     }
     draw() {
-        ctx.fillStyle = this.color
-        ctx.fillRect(this.pixelPosX+1, this.pixelPosY+1, tileSize-2, tileSize-2)
+        ctx.drawImage(this.sprite, this.pixelPosX + 1, this.pixelPosY + 1)
     }
 }

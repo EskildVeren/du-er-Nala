@@ -1,6 +1,11 @@
 /*
 Functional code where the logic lies
 */
+const player = new GameObject(4, 5, playerImg)
+    gameBoard.entities.push(player)
+    gameBoard.draw()
+    player.draw()
+
 function frameCycle() {
     //Check where to move
     if (direction != null) {
@@ -11,6 +16,7 @@ function frameCycle() {
                 }
             }
         });
+        addVacuum()
         moveVacuums()
         direction = null
         isMoving = false
@@ -29,7 +35,5 @@ function frameCycle() {
         console.log("Paused game!");
     }
 }
-
-setupGame()
 
 requestAnimationFrame(frameCycle)
