@@ -44,6 +44,7 @@ function frameCycle() {
     else {
         console.log("Paused game!");
     }
+    killOldVacuums()
 }
 
 requestAnimationFrame(frameCycle)

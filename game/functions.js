@@ -32,9 +32,9 @@ function moveVacuums() {
 const vacuumDirections = [vacuumGoingLeft, vacuumGoingUp, vacuumGoingRight, vacuumGoingDown]
 
 function addVacuum() {
-    const randomDirectionIndex = Math.floor(Math.random()*4)
+    const randomDirectionIndex = Math.floor(Math.random() * 4)
     const vacuumData = vacuumDirections[randomDirectionIndex]
-    
+
     let startX = vacuumData.startX
     let startY = vacuumData.startY
 
@@ -49,4 +49,15 @@ function addVacuum() {
 
     gameBoard.citrusEntities.push(newVacuum)
     console.log(gameBoard.citrusEntities);
+}
+
+function killOldVacuums() {
+    //Removes vacuums that have crossed the board. 
+    index = 0
+    gameBoard.citrusEntities.forEach(vacuum => {
+        if (vacuum.x > xTiles || vacuum.y > yTiles || vacuum.x < -1 || vacuum.x < -1) {
+            gameBoard.citrusEntities.splice(index, vacuum)
+        }
+        index ++
+    });
 }
