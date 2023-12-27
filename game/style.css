@@ -30,3 +30,6 @@ button {
     margin: 0.25em;
     gap: 0.5em;
 }
+img {
+    display: none;
+}
