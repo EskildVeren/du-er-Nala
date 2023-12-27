@@ -9,7 +9,7 @@ class GameBoard {
         ctx.fillStyle = background
         ctx.fillRect(0, 0, canvasWidth, canvasHeight)
 
-        const gridOffset = 0
+        const gridOffset = 2
         ctx.strokeStyle = text
         ctx.lineWidth = 2
 
@@ -25,6 +25,14 @@ class GameBoard {
             ctx.lineTo(canvasWidth-gridOffset, y)
             ctx.stroke()
         }
+        ctx.lineWidth = 2
+        ctx.beginPath()
+        ctx.moveTo(1, 1)
+        ctx.lineTo(1, canvasHeight-1)
+        ctx.lineTo(canvasWidth-1, canvasHeight-1)
+        ctx.lineTo(canvasWidth-1, 1)
+        ctx.lineTo(1,1)
+        ctx.stroke()
     }
     playerHit() {
         let playerHit = false
