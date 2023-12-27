@@ -31,24 +31,31 @@ function moveVacuums() {
 
 const vacuumDirections = [vacuumGoingLeft, vacuumGoingUp, vacuumGoingRight, vacuumGoingDown]
 
-function addVacuum() {
-    const randomDirectionIndex = Math.floor(Math.random() * 4)
-    const vacuumData = vacuumDirections[randomDirectionIndex]
+function addVacuums(gameTurn, modifier) {
 
-    let startX = vacuumData.startX
-    let startY = vacuumData.startY
+    const vacuums = Math.floor(1 + gameTurn * modifier)
+    console.log(vacuums);
+    console.log(gameTurn);
 
-    if (startX == "random") {
-        startX = Math.floor(Math.random() * xTiles)
+    for (let i = 0; i < vacuums; i++) {
+        const randomDirectionIndex = Math.floor(Math.random() * 4)
+        const vacuumData = vacuumDirections[randomDirectionIndex]
+
+        let startX = vacuumData.startX
+        let startY = vacuumData.startY
+
+        if (startX == "random") {
+            startX = Math.floor(Math.random() * xTiles)
+        }
+        else if (startY == "random") {
+            startY = Math.floor(Math.random() * yTiles)
+        }
+
+        newVacuum = new Vacuum(startX, startY, vacuumData.sprite, vacuumData.vx, vacuumData.vy)
+
+        gameBoard.citrusEntities.push(newVacuum)
+        
     }
-    else if (startY == "random") {
-        startY = Math.floor(Math.random() * yTiles)
-    }
-
-    newVacuum = new Vacuum(startX, startY, vacuumData.sprite, vacuumData.vx, vacuumData.vy)
-
-    gameBoard.citrusEntities.push(newVacuum)
-    console.log(gameBoard.citrusEntities);
 }
 
 function killOldVacuums() {

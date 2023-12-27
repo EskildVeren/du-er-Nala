@@ -5,9 +5,6 @@ class GameObject{
         this.pixelPosX = x * tileSize
         this.pixelPosY = y * tileSize
         this.sprite = sprite
-        //adjectives
-        this.push = false
-        this.stop = true
     }
     move(vx, vy) {
         this.x += vx

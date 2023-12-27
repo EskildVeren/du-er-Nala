@@ -4,9 +4,10 @@ Functional code where the logic lies
 let direction = null
 let pause = false
 let isMoving = false
+let gameTurn = 0
 
-const player = new GameObject(4, 5, playerImg)
-const gameBoard = new Player(background, player)
+const player = new Player(4, 5, playerImg)
+const gameBoard = new GameBoard(background, player)
 
 gameBoard.draw()
 player.draw()
@@ -19,24 +20,29 @@ function frameCycle() {
                 player.move(moveType.vx, moveType.vy)
             }
         });
-        addVacuum()
+        addVacuums(gameTurn, 0.2)
         moveVacuums()
         direction = null
         isMoving = false
-    }
-    //Draw objects
-    gameBoard.draw()
-    gameBoard.citrusEntities.forEach( entity => {
-        entity.draw()
-    });
-    player.draw()
+        gameTurn++
 
-    if (gameBoard.playerHit()) {
-        pause = true
-        ctx.fillRect(0,0,canvasWidth, canvasHeight)
-        
-    }
+        //Draw objects
+        gameBoard.draw()
+        gameBoard.citrusEntities.forEach( entity => {
+            entity.draw()
+        });
+        player.draw()
 
+        if (gameBoard.playerHit()) {
+            pause = true
+            gameBoard.draw()
+            gameBoard.citrusEntities.forEach( entity => {
+                entity.draw()
+            });
+        }
+
+        killOldVacuums()
+    }
     //Run if not paused
     if (!pause) {
         requestAnimationFrame(frameCycle)
@@ -44,7 +50,6 @@ function frameCycle() {
     else {
         console.log("Paused game!");
     }
-    killOldVacuums()
 }
 
 requestAnimationFrame(frameCycle)

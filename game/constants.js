@@ -27,8 +27,6 @@ const arrowUpImg = document.getElementById("arrowUp")
 const arrowRightImg = document.getElementById("arrowRight")
 const arrowDownImg = document.getElementById("arrowDown")
 const playerImg = document.getElementById("player")
-console.log(arrowLeftImg);
-
 
 //Dictionaries for removing repetitive code
 const movementMappings = [
