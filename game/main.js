@@ -6,7 +6,7 @@ let pause = false
 let isMoving = false
 
 const player = new GameObject(4, 5, playerImg)
-const gameBoard = new GameBoard(background, player)
+const gameBoard = new Player(background, player)
 
 gameBoard.draw()
 player.draw()
