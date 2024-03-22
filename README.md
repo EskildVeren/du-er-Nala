@@ -1,6 +1,6 @@
 # du-er-Nala
 
-Norsk "Baba is you"
+Skulle være en norsk __Baba is you__, men endte opp med å bli noe helt annet
 
 ## Om spillet
 
